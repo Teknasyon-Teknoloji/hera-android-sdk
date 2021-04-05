@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-applovin",
+    "version": "9.15.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "pnigqwdelnduzimyrigzahoowe"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "applovin",
+          "version": {
+            "requires": "9.15.0.a23"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "applovin",
+          "version": {
+            "requires": "9.15.3.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-applovin-9.15.0.0.aar",
+          "url": "hera-applovin-9.15.0.0.aar",
+          "size": 19930,
+          "sha512": "90cf8eee9fb2f1f0f7aa0c5ebcbd2e3241643fb62cf0e4ccf43c11755b22a9873759eceb4194e70a51cb73eaa3d266d3e56dc62cb667c2c43a9634fbfb677624",
+          "sha256": "abb514ac1234382396de684f08a5229aa950b56b9f280f2bc6dec2c155a93fde",
+          "sha1": "a5e295777ad694657ac7fecb033cee75ae0caaee",
+          "md5": "067b8d856df3a5a9faf53818300e5f96"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "applovin",
+          "version": {
+            "requires": "9.15.0.a23"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "applovin",
+          "version": {
+            "requires": "9.15.3.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-applovin-9.15.0.0.aar",
+          "url": "hera-applovin-9.15.0.0.aar",
+          "size": 19930,
+          "sha512": "90cf8eee9fb2f1f0f7aa0c5ebcbd2e3241643fb62cf0e4ccf43c11755b22a9873759eceb4194e70a51cb73eaa3d266d3e56dc62cb667c2c43a9634fbfb677624",
+          "sha256": "abb514ac1234382396de684f08a5229aa950b56b9f280f2bc6dec2c155a93fde",
+          "sha1": "a5e295777ad694657ac7fecb033cee75ae0caaee",
+          "md5": "067b8d856df3a5a9faf53818300e5f96"
+        }
+      ]
+    }
+  ]
+}
