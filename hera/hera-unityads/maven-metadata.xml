@@ -3,11 +3,12 @@
   <groupId>hera</groupId>
   <artifactId>hera-unityads</artifactId>
   <versioning>
-    <latest>3.6.0.0</latest>
-    <release>3.6.0.0</release>
+    <latest>3.6.0.1</latest>
+    <release>3.6.0.1</release>
     <versions>
       <version>3.6.0.0</version>
+      <version>3.6.0.1</version>
     </versions>
-    <lastUpdated>20210405130522</lastUpdated>
+    <lastUpdated>20210420080930</lastUpdated>
   </versioning>
 </metadata>

@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-ironsource",
+    "version": "7.1.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "qpzdkqz34fhixnpmjpoy37crf4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "ironsource",
+          "version": {
+            "requires": "7.1.1.a24"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "ironsource",
+          "version": {
+            "requires": "7.1.0.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-ironsource-7.1.0.1.aar",
+          "url": "hera-ironsource-7.1.0.1.aar",
+          "size": 16553,
+          "sha512": "8972ee74453c0c09fe5efb3dbc7c46e5a880f1d9cae2870f980ab6abfa8b82ecdbda8910e308b499418ec7669b18d13d76c54e34777b27f7a272e94f00fc7efd",
+          "sha256": "7b4b938a1c319e08a824c1f848f743079c552ba46d56dfff0a27aa2c6a302a63",
+          "sha1": "7177386d23aee5890440f2c7668a8e7f506b00f0",
+          "md5": "a39c47222a43ddc4c792a2ae1bbc44eb"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "ironsource",
+          "version": {
+            "requires": "7.1.1.a24"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "ironsource",
+          "version": {
+            "requires": "7.1.0.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-ironsource-7.1.0.1.aar",
+          "url": "hera-ironsource-7.1.0.1.aar",
+          "size": 16553,
+          "sha512": "8972ee74453c0c09fe5efb3dbc7c46e5a880f1d9cae2870f980ab6abfa8b82ecdbda8910e308b499418ec7669b18d13d76c54e34777b27f7a272e94f00fc7efd",
+          "sha256": "7b4b938a1c319e08a824c1f848f743079c552ba46d56dfff0a27aa2c6a302a63",
+          "sha1": "7177386d23aee5890440f2c7668a8e7f506b00f0",
+          "md5": "a39c47222a43ddc4c792a2ae1bbc44eb"
+        }
+      ]
+    }
+  ]
+}

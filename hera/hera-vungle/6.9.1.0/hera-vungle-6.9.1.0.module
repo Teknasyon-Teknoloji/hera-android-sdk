@@ -1,0 +1,133 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-vungle",
+    "version": "6.9.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "qpzdkqz34fhixnpmjpoy37crf4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.vungle",
+          "module": "publisher-sdk-android",
+          "version": {
+            "requires": "6.9.1"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "vungle-adapter",
+          "version": {
+            "requires": "6.9.1.a24"
+          }
+        },
+        {
+          "group": "androidx.legacy",
+          "module": "legacy-support-v4",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "vungle",
+          "version": {
+            "requires": "6.9.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-vungle-6.9.1.0.aar",
+          "url": "hera-vungle-6.9.1.0.aar",
+          "size": 16548,
+          "sha512": "6945c4354bfc7cd09130b2b4c1488bcf1f6079ff0d2ae720d5bb4a64797e185cadf038aeed79915fcb832f78f2c444643d84f856006726d5b1d0572fcb44316d",
+          "sha256": "5c5d6c510d5a6613df67f82f452058c178317e13f7fb152d5a1f171558031c0b",
+          "sha1": "424bcb897ca6d7f9abb4edbde9538861defd8254",
+          "md5": "b04b346ba61d697f5fdb0284446ef2dd"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.vungle",
+          "module": "publisher-sdk-android",
+          "version": {
+            "requires": "6.9.1"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "vungle-adapter",
+          "version": {
+            "requires": "6.9.1.a24"
+          }
+        },
+        {
+          "group": "androidx.legacy",
+          "module": "legacy-support-v4",
+          "version": {
+            "requires": "1.0.0"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "vungle",
+          "version": {
+            "requires": "6.9.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-vungle-6.9.1.0.aar",
+          "url": "hera-vungle-6.9.1.0.aar",
+          "size": 16548,
+          "sha512": "6945c4354bfc7cd09130b2b4c1488bcf1f6079ff0d2ae720d5bb4a64797e185cadf038aeed79915fcb832f78f2c444643d84f856006726d5b1d0572fcb44316d",
+          "sha256": "5c5d6c510d5a6613df67f82f452058c178317e13f7fb152d5a1f171558031c0b",
+          "sha1": "424bcb897ca6d7f9abb4edbde9538861defd8254",
+          "md5": "b04b346ba61d697f5fdb0284446ef2dd"
+        }
+      ]
+    }
+  ]
+}
