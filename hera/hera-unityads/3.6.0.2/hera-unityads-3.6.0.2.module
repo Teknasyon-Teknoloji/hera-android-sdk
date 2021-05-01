@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-unityads",
+    "version": "3.6.0.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.5",
+      "buildId": "hyh4ijiwtvhgdneaukok7no2he"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "unity",
+          "version": {
+            "requires": "3.6.0.1.a24"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "unityads",
+          "version": {
+            "requires": "3.6.0.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-unityads-3.6.0.2.aar",
+          "url": "hera-unityads-3.6.0.2.aar",
+          "size": 16525,
+          "sha512": "ece6f092b91f207f8b9957f1f5aa010fb51ae6996672ed68f81248bf0c6353b04e95649c88ca6b42e29b95762a4ed4876636f1c4ea7c0da154fea9ee422e38a4",
+          "sha256": "244c119c85c315612faa8742267fce65e92460ad285978b99fb09a663143d616",
+          "sha1": "f92704fd9feb54dc0509283f54c990a794c3182e",
+          "md5": "4d167dd7851506f44772a33d698e1975"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "unity",
+          "version": {
+            "requires": "3.6.0.1.a24"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "unityads",
+          "version": {
+            "requires": "3.6.0.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib",
+          "version": {
+            "requires": "1.4.21"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-unityads-3.6.0.2.aar",
+          "url": "hera-unityads-3.6.0.2.aar",
+          "size": 16525,
+          "sha512": "ece6f092b91f207f8b9957f1f5aa010fb51ae6996672ed68f81248bf0c6353b04e95649c88ca6b42e29b95762a4ed4876636f1c4ea7c0da154fea9ee422e38a4",
+          "sha256": "244c119c85c315612faa8742267fce65e92460ad285978b99fb09a663143d616",
+          "sha1": "f92704fd9feb54dc0509283f54c990a794c3182e",
+          "md5": "4d167dd7851506f44772a33d698e1975"
+        }
+      ]
+    }
+  ]
+}
