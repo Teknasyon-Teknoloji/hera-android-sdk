@@ -6,7 +6,7 @@ Hera is a mediation management library. It provides usage for Admost Mediation a
 
 First of all you need this implementation on app gradle
 
-    implementation 'hera:hera:1.0.4'
+    implementation 'hera:hera:1.1.0'
 
 And you must add Hera and Admost repositories to your project gradle
 
@@ -195,10 +195,12 @@ You can use Ares EventBus system with Mediation
 
 It is possible to integrate a third party network by adding corresponding network adapter in app module dependencies.
 
-    implementation "hera:hera-applovin:9.15.3.1"
-    implementation "hera:hera-chartboost:8.2.0.2"
-    implementation "hera:hera-ironsource:7.1.0.2"
-    implementation "hera:hera-unityads:3.6.0.2"
+    implementation "hera:hera-applovin:10.2.0.0"
+    implementation "hera:hera-chartboost:8.2.0.3"
+    implementation "hera:hera-ironsource:7.1.5.0"
+    implementation "hera:hera-unityads:3.7.1.0"
+    implementation "hera:hera-vungle:6.9.1.2"
+    implementation "hera:hera-tiktok:3.6.0.0"
 
 ### Applovin Integration
 

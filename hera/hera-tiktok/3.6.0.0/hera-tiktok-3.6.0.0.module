@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-tiktok",
+    "version": "3.6.0.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7.1",
+      "buildId": "vqv4bg6xozeu5oflz5aopkgtbm"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "tiktok",
+          "version": {
+            "requires": "3.6.0.1.a25"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "pangle",
+          "version": {
+            "requires": "3.5.1.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-tiktok-3.6.0.0.aar",
+          "url": "hera-tiktok-3.6.0.0.aar",
+          "size": 21874,
+          "sha512": "d81fced9352184a36aae06e3fd7777ed4b301cbfa40c420989fb5953a9b0b68a6da70ad317de9fa45412d0ff9fa1ca8169b97ecdf2115d2f740c577d42f3d615",
+          "sha256": "058cbc81971cb75aab346bedc0771825df34c1cefd245ed3a7503dc2f34ac0a8",
+          "sha1": "61902a120dd38e9c7f2290e40d6a21f59e1426aa",
+          "md5": "3a95c1fbac2bf4964962904c7fbdfd8f"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "tiktok",
+          "version": {
+            "requires": "3.6.0.1.a25"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "pangle",
+          "version": {
+            "requires": "3.5.1.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-tiktok-3.6.0.0.aar",
+          "url": "hera-tiktok-3.6.0.0.aar",
+          "size": 21874,
+          "sha512": "d81fced9352184a36aae06e3fd7777ed4b301cbfa40c420989fb5953a9b0b68a6da70ad317de9fa45412d0ff9fa1ca8169b97ecdf2115d2f740c577d42f3d615",
+          "sha256": "058cbc81971cb75aab346bedc0771825df34c1cefd245ed3a7503dc2f34ac0a8",
+          "sha1": "61902a120dd38e9c7f2290e40d6a21f59e1426aa",
+          "md5": "3a95c1fbac2bf4964962904c7fbdfd8f"
+        }
+      ]
+    }
+  ]
+}

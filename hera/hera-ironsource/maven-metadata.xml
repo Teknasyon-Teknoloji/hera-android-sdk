@@ -3,13 +3,14 @@
   <groupId>hera</groupId>
   <artifactId>hera-ironsource</artifactId>
   <versioning>
-    <latest>7.1.0.2</latest>
-    <release>7.1.0.2</release>
+    <latest>7.1.5.0</latest>
+    <release>7.1.5.0</release>
     <versions>
       <version>7.1.0.0</version>
       <version>7.1.0.1</version>
       <version>7.1.0.2</version>
+      <version>7.1.5.0</version>
     </versions>
-    <lastUpdated>20210501152038</lastUpdated>
+    <lastUpdated>20210527114003</lastUpdated>
   </versioning>
 </metadata>
