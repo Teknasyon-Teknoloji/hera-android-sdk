@@ -6,7 +6,7 @@ Hera is a mediation management library. It provides usage for Admost Mediation a
 
 First of all you need this implementation on app gradle
 
-    implementation 'hera:hera:1.1.0'
+    implementation 'hera:hera:1.1.1'
 
 And you must add Hera and Admost repositories to your project gradle
 
