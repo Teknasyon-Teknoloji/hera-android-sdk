@@ -1,0 +1,280 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera",
+    "version": "1.1.2",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7.1",
+      "buildId": "l57kfavo3bgybnkyc75f7to4iu"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "io.reactivex.rxjava2",
+          "module": "rxandroid",
+          "version": {
+            "requires": "2.1.1"
+          }
+        },
+        {
+          "group": "com.android.volley",
+          "module": "volley",
+          "version": {
+            "requires": "1.1.1"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "amr",
+          "version": {
+            "requires": "2.3.2"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-base",
+          "version": {
+            "requires": "17.1.0"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "admost",
+          "version": {
+            "requires": "0.2.4.a25"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "18.3.0"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "admob-gt-17.2.0-adapter",
+          "version": {
+            "requires": "1.0.6.a25"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "facebook",
+          "version": {
+            "requires": "6.4.0.a25"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "s2sbidding-adapter",
+          "version": {
+            "requires": "1.0.1.a25"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-1.1.2.aar",
+          "url": "hera-1.1.2.aar",
+          "size": 123122,
+          "sha512": "a0798861089720096a5fec19ff85c5c16cf5935a4f83ea679357a0ee1cc2d9769a252aee3b93c6b1f8f64c58f81f7a0648ef3ad7a598a626a489e1dc342f52f3",
+          "sha256": "4bc0d622e6204807db3056f9fcfc9c98cda5389d3939c81bcf7b5c76780ee9b1",
+          "sha1": "5e326ec831a77acdf827f5e1f66626a1c3417b72",
+          "md5": "26837ee0ad5b6d488fa0c326705863e8"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "io.reactivex.rxjava2",
+          "module": "rxandroid",
+          "version": {
+            "requires": "2.1.1"
+          }
+        },
+        {
+          "group": "com.android.volley",
+          "module": "volley",
+          "version": {
+            "requires": "1.1.1"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "amr",
+          "version": {
+            "requires": "2.3.2"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-base",
+          "version": {
+            "requires": "17.1.0"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "admost",
+          "version": {
+            "requires": "0.2.4.a25"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads",
+          "version": {
+            "requires": "18.3.0"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "admob-gt-17.2.0-adapter",
+          "version": {
+            "requires": "1.0.6.a25"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "facebook",
+          "version": {
+            "requires": "6.4.0.a25"
+          }
+        },
+        {
+          "group": "com.admost.sdk",
+          "module": "s2sbidding-adapter",
+          "version": {
+            "requires": "1.0.1.a25"
+          }
+        },
+        {
+          "group": "androidx.annotation",
+          "module": "annotation",
+          "version": {
+            "requires": "1.2.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.10"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-parcelize-runtime",
+          "version": {
+            "requires": "1.5.10"
+          }
+        },
+        {
+          "group": "com.squareup.retrofit2",
+          "module": "retrofit",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "com.squareup.retrofit2",
+          "module": "converter-gson",
+          "version": {
+            "requires": "2.9.0"
+          }
+        },
+        {
+          "group": "com.squareup.okhttp3",
+          "module": "logging-interceptor",
+          "version": {
+            "requires": "4.7.2"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlinx",
+          "module": "kotlinx-coroutines-android",
+          "version": {
+            "requires": "1.4.2"
+          }
+        },
+        {
+          "group": "com.mopub",
+          "module": "mopub-sdk",
+          "version": {
+            "requires": "5.15.0"
+          },
+          "thirdPartyCompatibility": {
+            "artifactSelector": {
+              "name": "mopub-sdk",
+              "type": "aar",
+              "extension": "aar"
+            }
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "admob",
+          "version": {
+            "requires": "19.6.0.1"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "facebookaudiencenetwork",
+          "version": {
+            "requires": "6.3.0.0"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-1.1.2.aar",
+          "url": "hera-1.1.2.aar",
+          "size": 123122,
+          "sha512": "a0798861089720096a5fec19ff85c5c16cf5935a4f83ea679357a0ee1cc2d9769a252aee3b93c6b1f8f64c58f81f7a0648ef3ad7a598a626a489e1dc342f52f3",
+          "sha256": "4bc0d622e6204807db3056f9fcfc9c98cda5389d3939c81bcf7b5c76780ee9b1",
+          "sha1": "5e326ec831a77acdf827f5e1f66626a1c3417b72",
+          "md5": "26837ee0ad5b6d488fa0c326705863e8"
+        }
+      ]
+    }
+  ]
+}

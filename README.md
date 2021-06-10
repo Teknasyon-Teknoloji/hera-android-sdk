@@ -1,22 +1,46 @@
-Mediation is a feature that lets you serve ads to your apps from multiple sources, including third-party ad networks etc
+# Hera
 
-Hera is a mediation management library. It provides usage for Admost Mediation and Mopub Mediation systems. 
 
-## Implementation
+Hera strives to simplify the process of integrating and remotely configuring 3rd party ads libraries in your project, here a list of the features it provides:
 
-First of all you need this implementation on app gradle
+  
 
-    implementation 'hera:hera:1.1.1'
+## Features
 
-And you must add Hera and Admost repositories to your project gradle
 
+- ✅ Remotely changing the ad unit id associated with a specific action.
+
+- 🚀 Changing the ads provider on the fly.
+
+- ⏰ Control the ads showing intervals remotly.
+
+- ⚙️ Showing ads based on a specific action.
+
+  
+
+The following document offers a quick guide on how to use this SDK.
+  
+
+## Installation
+
+Hera and Admost repositories should be added in project level build.gradle file
+
+```groovy
     maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/hera-android-sdk/master/' }
     maven { url 'http://repo.admost.com:8081/artifactory/admost' }
+```
+
+Hera dependency should be added in app level build.gradle file
+   
+```groovy 
+    implementation 'hera:hera:1.1.2'
+```
+
 
 Starting with Android 9.0 (API level 28), cleartext support is disabled by default. For applications targetSdkVersion higher than 27 must use the following manifest config for AdMost cleartext support.
 
 Create network security config xml and add it to your application
-
+```xml
     <?xml version="1.0" encoding="utf-8"?>
     <network-security-config>
         <domain-config cleartextTrafficPermitted="true">
@@ -26,30 +50,31 @@ Create network security config xml and add it to your application
 
     <application
       ...
-        android:networkSecurityConfig="@xml/network_security_config"
+        android:networkSecurityConfig="@xml/network_security_config">
 
      </application>
-
+```
 
 or you can just add this line to your application
-
+```xml
     <application
       ...
-        android:usesCleartextTraffic="true"
+        android:usesCleartextTraffic="true">
 
      </application>
-
+```
 You must add your Admob App Id and Facebook App Id to your manifest  
-
+```xml
     <meta-data
         android:name="com.facebook.sdk.ApplicationId"
         android:value="@string/facebook_app_id" />
     <meta-data
         android:name="com.google.android.gms.ads.APPLICATION_ID"
         android:value="@string/admob_app_id" />
-    <meta-data
+```
+## Usage
 
-## Initialization
+### Initialization
 
 Hera needs 2 variables for init.
 
@@ -58,94 +83,68 @@ Parameter|Value
 apiKey | String
 debuggable | Boolean flag to print logs
 
+```kotlin
     Hera.init(
       apiKey = "MEDIATON_MANAGER_KEY",
       debuggable = false
     )
+```
 
-After that Hera needs User properties for the get correct mediation info. 
+You need to collect advertise attributions first. The advertise attribution is a Map<String,String> type
 
-Please wait attribution info before use to Hera.setUserProperties() method.
+Here is an example of how it look like
 
-Ad intervals and first ad times come from Hera service and Hera manages it.
+```kotlin
 
-    Hera.setUserProperties(
-      activity = this,
-      heraUserProperties : HeraUserProperties
+mapOf("adjust" to "{\"trackerToken\":\"xxx\",\"adid\":\"xxxxx\",\"trackerName\":\"Organic\",\"network\":\"Organic\"}")
+
+```
+
+  
+#### HeraUserProperties
+
+After preparing `AddvertisementAttributions` we can initialize `HeraUserProperties` like follows
+
+```kotlin
+
+val atrributions = mapOf("adjust" to "{\"trackerToken\":\"xxx\",\"adid\":\"xxxxx\",\"trackerName\":\"Organic\",\"network\":\"Organic\"}")
+
+  
+Hera.setUserProperties(
+    activity = this,
+    heraUserProperties = HeraUserProperties(
+        device_id = "1234567890123456",
+        language = "tr",
+        country = "TR",
+        advertise_attributions = advertisingAttributions,
+        extra_data = null
     )
+)
 
--Landing Count 
+```
 
-We need paywall(landing) opening count for our extra data info. You can implement this methodology on your side.
-
-You can listen to PAYWALL_OPENED event and increase your landing count in your onCreate method of application class. Also you can disable showing ads over the paywall by using Hera.canShow(booleanI) method. Because loading and showing an interstitial ad is not synchronize, there is chance to display an interstitial ad over paywall.
-
-    EventBus.subscribe(Consumer {
-        when (it.type) {
-            DeepwallEvent.PAYWALL_OPENED.value -> {
-                Log.d("landingCount", cacheManager.read("landingCount", 0).toString())
-                cacheManager.write("landingCount", cacheManager.read("landingCount", 0) + 1)
-                Hera.canShowAd(false)
-            }
-            DeepwallEvent.CLOSED.value, DeepwallEvent.CANCELED.value -> {
-                Hera.canShowAd(true)
-            }
-        }
-    })
-
-HeraUserProperties
-
-Parameter|Value
----------|-----
-device_id | String
-language | String
-country | String
-advertise_attributions | Map<String,String>
-extraData | HashMap<String,Any>
-
-    val extraData = mapOf(
-      "landing_loading_count" to cacheManager.read("landingCount", 0),
-      "is_premium" to cacheManager.read("isPro", false)
-    )
-
-    Hera.setUserProperties(
-        activity = this,
-        heraUserProperties = HeraUserProperties(
-            device_id = deviceId,
-            language = deviceUtils.local,
-            country = mobileCountryCode(),
-            advertise_attributions = AttributionAgent.deepLinkResponse.attributions,
-            extra_data = extraData
-        )
-    )
-
-    EventBus.subscribe(Consumer {
-        when (it.type) {
-            "DEEP_LINK_RESPONSE".hashCode() -> {
-                  // You must call your set user properties method in here
-            }
-        }
-    })
-
-## Load Ads
+### Load Ads
 
 You can easily load your ads from Hera with action key. 
 
+```kotlin
     Hera.loadAd(activity : Activity, action : String)
+```
 
 Usage example
-
+```kotlin
     Hera.loadAd(
-      activity = this,
+      activity = requireActivity(),
       action = "inAppTransition"
     )
-
+```
  
 
-## Show Ads
+### Show Ads
 
 You can show your ads after load.
 
+```kotlin
     Hera.showAd(
       activity = this,
       action = "inAppTransition"
@@ -153,8 +152,9 @@ You can show your ads after load.
       TODO("lambda function called after an ad shown or ad failed to shown")
       openNextActivity()
     }
+```
 
-## Events
+### Events
 
 Event|Type|Description
 -----|----|-----------
@@ -167,11 +167,9 @@ AD_FAILED|String|
 
 You can use Ares EventBus system with Mediation 
 
+```kotlin
     Hera.subscribe(Consumer {
         when (it.type) {
-            "DEEP_LINK_RESPONSE".hashCode() -> {
-                setHeraProperties()
-            }
             MediationEvent.AD_CLOSED.value -> {
                 openNextActivity()
             }
@@ -180,32 +178,39 @@ You can use Ares EventBus system with Mediation
             }
             MediationEvent.HERA_READY.value -> {
                 lifecycleScope.launch(Dispatchers.Main) {
-                    Hera.loadAd(this@SplashActivity, "afterLanding")
+                    Hera.loadAd(this@SplashActivity, "action")
                 }
-                //After second fetch config for premium state changes. Landing closed will occur here
-                if (cache.isPro.value == true) {
-                    aresLanding.closeLanding()
-                }
-
             }
         }
     })
+```
+
+## Updating User Status
+
+`Hera.updateUserProperties(activity,userProperties)`
+
+
+
+> Calling this method will fetch the configurations again and re-initialize `Hera`.
 
 ## Ad Network Integration
 
-It is possible to integrate a third party network by adding corresponding network adapter in app module dependencies.
 
+Hera supports Google Admob and Facebook Ads out of the box if you would like to integrate other ad networks please add corresponding adapter dependencies in your gradle file.
+
+It is possible to integrate a third party network by adding corresponding network adapter in app module dependencies.
+```groovy
     implementation "hera:hera-applovin:10.2.0.0"
     implementation "hera:hera-chartboost:8.2.0.3"
     implementation "hera:hera-ironsource:7.1.5.0"
     implementation "hera:hera-unityads:3.7.1.0"
     implementation "hera:hera-vungle:6.9.1.2"
     implementation "hera:hera-tiktok:3.6.0.0"
-
+```
 ### Applovin Integration
 
 Besides adding required adapter, Applovin also requires api key. 
-
+```xml
     <manifest>
       ...
       <application
@@ -218,3 +223,4 @@ Besides adding required adapter, Applovin also requires api key.
         ...
       </application>
     <manifest>
+```
