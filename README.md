@@ -26,6 +26,7 @@ The following document offers a quick guide on how to use this SDK.
 Hera and Admost repositories should be added in project level build.gradle file
 
 ```groovy
+    jcenter()
     maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/hera-android-sdk/master/' }
     maven { url 'http://repo.admost.com:8081/artifactory/admost' }
 ```
@@ -33,7 +34,7 @@ Hera and Admost repositories should be added in project level build.gradle file
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:1.1.2'
+    implementation 'hera:hera:1.1.3'
 ```
 
 
@@ -224,3 +225,7 @@ Besides adding required adapter, Applovin also requires api key.
       </application>
     <manifest>
 ```
+
+## Requirements
+Android SDK Level 19+
+Kotlin 1.4+
