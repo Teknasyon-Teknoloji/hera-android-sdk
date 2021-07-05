@@ -28,13 +28,13 @@ Hera and Admost repositories should be added in project level build.gradle file
 ```groovy
     jcenter()
     maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/hera-android-sdk/master/' }
-    maven { url 'http://repo.admost.com:8081/artifactory/admost' }
+    maven { url 'http://repo.admost.com:8081/artifactory/amr' }
 ```
 
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:1.1.3'
+    implementation 'hera:hera:1.2.6'
 ```
 
 
@@ -129,14 +129,24 @@ Hera.setUserProperties(
 You can easily load your ads from Hera with action key. 
 
 ```kotlin
-    Hera.loadAd(activity : Activity, action : String)
+    Hera.loadAd(activity: Activity, adType: AdType, action: String)
 ```
 
 Usage example
 ```kotlin
+
+// Interstitial ad usage inside activity
     Hera.loadAd(
-      activity = requireActivity(),
-      action = "inAppTransition"
+      activity = this,
+      adType = AdType.INTERSTITIAL,
+      action = "MainScreen"
+    )
+
+// Interstitial ad usage inside fragment
+    Hera.loadAd(
+      fragment = this,
+      adType = AdType.INTERSTITIAL,
+      action = "MainScreen"
     )
 ```
  
@@ -146,9 +156,37 @@ Usage example
 You can show your ads after load.
 
 ```kotlin
+// Banner ad usage inside activity
     Hera.showAd(
       activity = this,
-      action = "inAppTransition"
+      adType = AdType.BANNER,
+      action = "MainScreen",
+      view = viewGroupForBanner
+    )
+
+// Banner ad usage inside fragment
+    Hera.showAd(
+      fragment = this,
+      adType = AdType.BANNER,
+      action = "MainScreen",
+      view = viewGroupForBanner
+    )
+
+// Interstitial ad usage inside activity
+    Hera.showAd(
+      activity = this,
+      adType = AdType.INTERSTITIAL,
+      action = "MainScreen"
+    ) {
+      TODO("lambda function called after an ad shown or ad failed to shown")
+      openNextActivity()
+    }
+
+// Interstitial ad usage inside fragment
+    Hera.showAd(
+      fragment = this,
+      adType = AdType.INTERSTITIAL,
+      action = "MainScreen"
     ) {
       TODO("lambda function called after an ad shown or ad failed to shown")
       openNextActivity()
@@ -201,12 +239,12 @@ Hera supports Google Admob and Facebook Ads out of the box if you would like to 
 
 It is possible to integrate a third party network by adding corresponding network adapter in app module dependencies.
 ```groovy
-    implementation "hera:hera-applovin:10.2.0.0"
-    implementation "hera:hera-chartboost:8.2.0.3"
+    implementation "hera:hera-applovin:10.2.0.1"
+    implementation "hera:hera-chartboost:8.2.1.0"
     implementation "hera:hera-ironsource:7.1.5.0"
     implementation "hera:hera-unityads:3.7.1.0"
-    implementation "hera:hera-vungle:6.9.1.2"
-    implementation "hera:hera-tiktok:3.6.0.0"
+    implementation "hera:hera-vungle:6.9.1.3"
+    implementation "hera:hera-tiktok:3.6.0.1"
 ```
 ### Applovin Integration
 
