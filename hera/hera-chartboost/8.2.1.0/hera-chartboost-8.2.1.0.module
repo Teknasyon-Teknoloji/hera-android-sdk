@@ -1,0 +1,105 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-chartboost",
+    "version": "8.2.1.0",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7.1",
+      "buildId": "qup4nywskba6zm7vkfs55m6wc4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "chartboost",
+          "version": {
+            "requires": "8.2.1.a25"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "chartboost",
+          "version": {
+            "requires": "8.2.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-chartboost-8.2.1.0.aar",
+          "url": "hera-chartboost-8.2.1.0.aar",
+          "size": 16687,
+          "sha512": "ea35ff6cf568e27975733c368e72f89df71fa3b98171ef72268f49e2f6a8abb1a69b572c15f0426a686d14945ac5a5996477db7e1b1d8e93f3906243b3c0a1d8",
+          "sha256": "3ed9ce9cac4ff817338886c36f66037593f5c7831e8b07dbbd85ac0513249176",
+          "sha1": "c200b11784cb53f1fca420363b0fdaf73b86430d",
+          "md5": "9358be963bed3251ad8222d037892745"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "chartboost",
+          "version": {
+            "requires": "8.2.1.a25"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "chartboost",
+          "version": {
+            "requires": "8.2.1.0"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-chartboost-8.2.1.0.aar",
+          "url": "hera-chartboost-8.2.1.0.aar",
+          "size": 16687,
+          "sha512": "ea35ff6cf568e27975733c368e72f89df71fa3b98171ef72268f49e2f6a8abb1a69b572c15f0426a686d14945ac5a5996477db7e1b1d8e93f3906243b3c0a1d8",
+          "sha256": "3ed9ce9cac4ff817338886c36f66037593f5c7831e8b07dbbd85ac0513249176",
+          "sha1": "c200b11784cb53f1fca420363b0fdaf73b86430d",
+          "md5": "9358be963bed3251ad8222d037892745"
+        }
+      ]
+    }
+  ]
+}

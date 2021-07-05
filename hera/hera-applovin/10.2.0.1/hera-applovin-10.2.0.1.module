@@ -1,0 +1,119 @@
+{
+  "formatVersion": "1.1",
+  "component": {
+    "group": "hera",
+    "module": "hera-applovin",
+    "version": "10.2.0.1",
+    "attributes": {
+      "org.gradle.status": "release"
+    }
+  },
+  "createdBy": {
+    "gradle": {
+      "version": "6.7.1",
+      "buildId": "qup4nywskba6zm7vkfs55m6wc4"
+    }
+  },
+  "variants": [
+    {
+      "name": "releaseApiPublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-api"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "applovin",
+          "version": {
+            "requires": "10.2.0.a25"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "applovin",
+          "version": {
+            "requires": "10.2.1.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "17.0.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-applovin-10.2.0.1.aar",
+          "url": "hera-applovin-10.2.0.1.aar",
+          "size": 24682,
+          "sha512": "efd32dcef55c3cc4a0156a98bc3779876e9e33568aa309374d0941ad3a15776a074f5775eb94620136ef76f5e04057eef322a841742e58598b7437ba936727fa",
+          "sha256": "52d1846fcdd420e8d217f095d89cf4480675d3f2ee56e2a7652452b1aa4ecfe4",
+          "sha1": "56792968a35bf41e2b5f6c32254f77fdec1550c9",
+          "md5": "96881cbf86b473443bb0a7bf122df827"
+        }
+      ]
+    },
+    {
+      "name": "releaseRuntimePublication",
+      "attributes": {
+        "org.gradle.category": "library",
+        "org.gradle.dependency.bundling": "external",
+        "org.gradle.libraryelements": "aar",
+        "org.gradle.usage": "java-runtime"
+      },
+      "dependencies": [
+        {
+          "group": "com.admost.sdk",
+          "module": "applovin",
+          "version": {
+            "requires": "10.2.0.a25"
+          }
+        },
+        {
+          "group": "com.mopub.mediation",
+          "module": "applovin",
+          "version": {
+            "requires": "10.2.1.0"
+          }
+        },
+        {
+          "group": "com.google.android.gms",
+          "module": "play-services-ads-identifier",
+          "version": {
+            "requires": "17.0.1"
+          }
+        },
+        {
+          "group": "org.jetbrains.kotlin",
+          "module": "kotlin-stdlib-jdk8",
+          "version": {
+            "requires": "1.5.10"
+          }
+        }
+      ],
+      "files": [
+        {
+          "name": "hera-applovin-10.2.0.1.aar",
+          "url": "hera-applovin-10.2.0.1.aar",
+          "size": 24682,
+          "sha512": "efd32dcef55c3cc4a0156a98bc3779876e9e33568aa309374d0941ad3a15776a074f5775eb94620136ef76f5e04057eef322a841742e58598b7437ba936727fa",
+          "sha256": "52d1846fcdd420e8d217f095d89cf4480675d3f2ee56e2a7652452b1aa4ecfe4",
+          "sha1": "56792968a35bf41e2b5f6c32254f77fdec1550c9",
+          "md5": "96881cbf86b473443bb0a7bf122df827"
+        }
+      ]
+    }
+  ]
+}
