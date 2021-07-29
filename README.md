@@ -34,7 +34,7 @@ Hera and Admost repositories should be added in project level build.gradle file
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:1.2.6'
+    implementation 'hera:hera:1.2.8'
 ```
 
 
@@ -265,5 +265,6 @@ Besides adding required adapter, Applovin also requires api key.
 ```
 
 ## Requirements
-Android SDK Level 19+
+Min Android SDK Level 19+
+Target Android SDK Level 30
 Kotlin 1.4+
