@@ -34,7 +34,7 @@ Hera and Admost repositories should be added in project level build.gradle file
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:1.2.8'
+    implementation 'hera:hera:2.0.0'
 ```
 
 
@@ -77,7 +77,7 @@ You must add your Admob App Id and Facebook App Id to your manifest  
 
 ### Initialization
 
-Hera needs 2 variables for init.
+Hera.init(apiKey,debuggable) method should be called on Application class. Hera needs 2 variables for init.
 
 Parameter|Value
 ---------|-----
@@ -85,10 +85,17 @@ apiKey | String
 debuggable | Boolean flag to print logs
 
 ```kotlin
-    Hera.init(
-      apiKey = "MEDIATON_MANAGER_KEY",
-      debuggable = false
-    )
+class App: Application(){
+
+    override fun onCreate(){
+        Hera.init(
+            application = this,
+            apiKey = "MEDIATON_MANAGER_KEY",
+            debuggable = false
+        )
+    }
+
+}    
 ```
 
 You need to collect advertise attributions first. The advertise attribution is a Map<String,String> type
@@ -112,7 +119,6 @@ val atrributions = mapOf("adjust" to "{\"trackerToken\":\"xxx\",\"adid\":\"xxxxx
 
   
 Hera.setUserProperties(
-    activity = this,
     heraUserProperties = HeraUserProperties(
         device_id = "1234567890123456",
         language = "tr",
@@ -124,12 +130,22 @@ Hera.setUserProperties(
 
 ```
 
+Language changes can be passed in to Hera by Hera.updateUserProperties(language) method.
+
+```kotlin
+
+Hera.updateUserProperties(language = "en")
+
+```
+
 ### Load Ads
 
 You can easily load your ads from Hera with action key. 
 
 ```kotlin
+    
     Hera.loadAd(activity: Activity, adType: AdType, action: String)
+
 ```
 
 Usage example
@@ -148,6 +164,7 @@ Usage example
       adType = AdType.INTERSTITIAL,
       action = "MainScreen"
     )
+
 ```
  
 
@@ -156,6 +173,7 @@ Usage example
 You can show your ads after load.
 
 ```kotlin
+
 // Banner ad usage inside activity
     Hera.showAd(
       activity = this,
@@ -191,7 +209,11 @@ You can show your ads after load.
       TODO("lambda function called after an ad shown or ad failed to shown")
       openNextActivity()
     }
+
 ```
+
+#### Global Ads
+Global ads feature is working autimatically when setting up in Hera control panel. It does not require any method call from application layer. 
 
 ### Events
 
