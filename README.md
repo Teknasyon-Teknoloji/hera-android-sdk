@@ -120,11 +120,11 @@ val atrributions = mapOf("adjust" to "{\"trackerToken\":\"xxx\",\"adid\":\"xxxxx
   
 Hera.setUserProperties(
     heraUserProperties = HeraUserProperties(
-        device_id = "1234567890123456",
+        deviceId = "1234567890123456",
         language = "tr",
         country = "TR",
-        advertise_attributions = advertisingAttributions,
-        extra_data = null
+        advertiseAttributions = advertisingAttributions,
+        extraData = null
     )
 )
 
