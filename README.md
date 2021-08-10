@@ -34,7 +34,7 @@ Hera and Admost repositories should be added in project level build.gradle file
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:2.0.0'
+    implementation 'hera:hera:2.0.1'
 ```
 
 
@@ -266,7 +266,7 @@ It is possible to integrate a third party network by adding corresponding networ
     implementation "hera:hera-ironsource:7.1.5.0"
     implementation "hera:hera-unityads:3.7.1.0"
     implementation "hera:hera-vungle:6.9.1.3"
-    implementation "hera:hera-tiktok:3.6.0.1"
+    implementation "hera:hera-tiktok:3.8.0.0"
 ```
 ### Applovin Integration
 
