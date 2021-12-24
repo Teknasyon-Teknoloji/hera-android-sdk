@@ -26,15 +26,15 @@ The following document offers a quick guide on how to use this SDK.
 Hera and Admost repositories should be added in project level build.gradle file
 
 ```groovy
-    jcenter()
-    maven { url 'https://raw.githubusercontent.com/Teknasyon-Teknoloji/hera-android-sdk/master/' }
     maven { url 'http://repo.admost.com:8081/artifactory/amr' }
+    maven { url 'https://pubsdk-bin.criteo.com/publishersdk/android' }
+    maven { url 'https://maven.ogury.co' }
 ```
 
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:2.0.1'
+    implementation 'hera:hera:2.2.2'
 ```
 
 
@@ -89,7 +89,6 @@ class App: Application(){
 
     override fun onCreate(){
         Hera.init(
-            application = this,
             apiKey = "MEDIATON_MANAGER_KEY",
             debuggable = false
         )
@@ -144,7 +143,7 @@ You can easily load your ads from Hera with action key.
 
 ```kotlin
     
-    Hera.loadAd(activity: Activity, adType: AdType, action: String)
+    Hera.loadAd(activity: Activity, adConfig: AdConfig)
 
 ```
 
@@ -154,15 +153,16 @@ Usage example
 // Interstitial ad usage inside activity
     Hera.loadAd(
       activity = this,
-      adType = AdType.INTERSTITIAL,
+      adConfig = AdType.INTERSTITIAL,
       action = "MainScreen"
     )
 
 // Interstitial ad usage inside fragment
     Hera.loadAd(
       fragment = this,
-      adType = AdType.INTERSTITIAL,
-      action = "MainScreen"
+      adType = AdConfig.InterstitialAd(
+        action = "MainScreen"
+      )
     )
 
 ```
@@ -177,54 +177,122 @@ You can show your ads after load.
 // Banner ad usage inside activity
     Hera.showAd(
       activity = this,
-      adType = AdType.BANNER,
-      action = "MainScreen",
+      adConfig = AdConfig.BannerAd(
+        action = "MainScreen"
+      ),
       view = viewGroupForBanner
     )
 
 // Banner ad usage inside fragment
     Hera.showAd(
       fragment = this,
-      adType = AdType.BANNER,
-      action = "MainScreen",
+      adConfig = AdConfig.BannerAd(
+        action = "MainScreen"
+      ),
       view = viewGroupForBanner
     )
 
 // Interstitial ad usage inside activity
     Hera.showAd(
       activity = this,
-      adType = AdType.INTERSTITIAL,
-      action = "MainScreen"
-    ) {
-      TODO("lambda function called after an ad shown or ad failed to shown")
-      openNextActivity()
-    }
+      adConfig = AdType.InterstitialAd(
+        action = "MainScreen"
+      )
+    )
 
 // Interstitial ad usage inside fragment
     Hera.showAd(
       fragment = this,
-      adType = AdType.INTERSTITIAL,
-      action = "MainScreen"
-    ) {
-      TODO("lambda function called after an ad shown or ad failed to shown")
-      openNextActivity()
-    }
+      adConfig = AdType.InterstitialAd(
+        action = "MainScreen"
+      )
+    )
+
+// Rewarded ad usage inside activity
+    Hera.showAd(
+      activity = this,
+      adConfig = AdType.RewardedAd(
+        action = "MainScreen"
+      )
+    )
+
+// Rewarded ad usage inside fragment
+    Hera.showAd(
+      fragment = this,
+      adConfig = AdType.RewardedAd(
+        action = "MainScreen"
+      )
+    )
+    
+// Native ad binder objects
+    val hera = HeraNativeBannerBinder.Builder(R.layout.custom_native_layout)
+        .titleId(R.id.ad_headline)
+        .textId(R.id.ad_body)
+        .mainImageId(R.id.ad_image)
+        .iconImageId(R.id.ad_app_icon)
+        .callToActionId(R.id.ad_call_to_action)
+        .privacyIconId(R.id.ad_privacy_icon)
+        .sponsoredTextId(R.id.ad_attribution)
+        .build()
+
+    val facebook = HeraFacebookBinder.Builder(R.layout.facbook_native_layout)
+        .titleId(R.id.native_title)
+        .textId(R.id.native_text)
+        .mediaViewId(R.id.native_media_view)
+        .adIconViewId(R.id.native_icon)
+        .callToActionId(R.id.native_cta)
+        .adChoicesRelativeLayoutId(R.id.native_privacy_information_icon_layout)
+        .build()
+
+    val google = HeraGooglePlayBinder.Builder(R.layout.admob_video_ad_list_item)
+        .titleId(R.id.native_title)
+        .textId(R.id.native_text)
+        .mediaLayoutId(R.id.native_media_layout)
+        .iconImageId(R.id.native_icon_image)
+        .callToActionId(R.id.native_cta)
+        .privacyInformationIconImageId(R.id.native_privacy_information_icon_image)
+        .build()
+
+    val tiktok = HeraTiktokBinder.Builder(R.layout.tiktok_native_layout)
+        .titleId(R.id.native_title)
+        .textId(R.id.native_text)
+        .mediaViewId(R.id.native_media_layout)
+        .adIconViewId(R.id.native_icon_image)
+        .callToActionId(R.id.native_cta)
+        .build()
+
+// Native ad usage inside activity
+    Hera.showAd(
+      activity = this,
+      adConfig = AdType.NativeAd(
+        action = "MainScreen"
+      ),
+      view = viewGroupForBanner
+      binder = HeraBinder(hera, facebook, google, tiktok)
+    )
+
+// Native ad usage inside fragment
+    Hera.showAd(
+      fragment = this,
+      adConfig = AdType.NativeAd(
+        action = "MainScreen"
+      ),
+      binder = HeraBinder(hera, facebook, google, tiktok)
+    )
 
 ```
-
-#### Global Ads
-Global ads feature is working autimatically when setting up in Hera control panel. It does not require any method call from application layer. 
 
 ### Events
 
 Event|Type|Description
 -----|----|-----------
-HERA_READY|-|It fires After fetch config successful.
+HERA_READY|-|It's fired After fetch config successful.
 AD_LOADED|String|
 AD_SHOWED|String|
 AD_CLOSED|String|
 AD_CLICKED|String|
 AD_FAILED|String|
+AD_COMPLETED|String|It's fired when user earn reward from rewarded ads. To open premium content, AD_CLOSED event should be waited
 
 You can use Ares EventBus system with Mediation 
 
@@ -261,12 +329,16 @@ Hera supports Google Admob and Facebook Ads out of the box if you would like to 
 
 It is possible to integrate a third party network by adding corresponding network adapter in app module dependencies.
 ```groovy
-    implementation "hera:hera-applovin:10.2.0.1"
-    implementation "hera:hera-chartboost:8.2.1.0"
-    implementation "hera:hera-ironsource:7.1.5.0"
-    implementation "hera:hera-unityads:3.7.1.0"
-    implementation "hera:hera-vungle:6.9.1.3"
-    implementation "hera:hera-tiktok:3.8.0.0"
+    implementation "hera:hera-adcolony:4.6.3.1"
+    implementation "hera:hera-applovin:10.3.3.1"
+    implementation "hera:hera-chartboost:8.2.1.1"
+    implementation "hera:hera-criteo:4.4.0.1"
+    implementation "hera:hera-inmobi:9.1.9.1"
+    implementation "hera:hera-ironsource:7.1.10.1"
+    implementation "hera:hera-ogury:5.0.10.1"
+    implementation "hera:hera-unityads:3.7.2.2"
+    implementation "hera:hera-vungle:6.10.2.1"
+    implementation "hera:hera-tiktok:3.9.0.1"
 ```
 ### Applovin Integration
 
