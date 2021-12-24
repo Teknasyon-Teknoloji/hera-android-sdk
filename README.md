@@ -26,6 +26,7 @@ The following document offers a quick guide on how to use this SDK.
 Hera and Admost repositories should be added in project level build.gradle file
 
 ```groovy
+    maven { url 'https://maven.teknasyon.com' }
     maven { url 'http://repo.admost.com:8081/artifactory/amr' }
     maven { url 'https://pubsdk-bin.criteo.com/publishersdk/android' }
     maven { url 'https://maven.ogury.co' }
