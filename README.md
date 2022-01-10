@@ -154,14 +154,15 @@ Usage example
 // Interstitial ad usage inside activity
     Hera.loadAd(
       activity = this,
-      adConfig = AdType.INTERSTITIAL,
-      action = "MainScreen"
+      adConfig = AdConfig.InterstitialAd(
+        action = "MainScreen"
+      )
     )
 
 // Interstitial ad usage inside fragment
     Hera.loadAd(
       fragment = this,
-      adType = AdConfig.InterstitialAd(
+      adConfig = AdConfig.InterstitialAd(
         action = "MainScreen"
       )
     )
@@ -196,7 +197,7 @@ You can show your ads after load.
 // Interstitial ad usage inside activity
     Hera.showAd(
       activity = this,
-      adConfig = AdType.InterstitialAd(
+      adConfig = AdConfig.InterstitialAd(
         action = "MainScreen"
       )
     )
@@ -204,7 +205,7 @@ You can show your ads after load.
 // Interstitial ad usage inside fragment
     Hera.showAd(
       fragment = this,
-      adConfig = AdType.InterstitialAd(
+      adConfig = AdConfig.InterstitialAd(
         action = "MainScreen"
       )
     )
@@ -212,7 +213,7 @@ You can show your ads after load.
 // Rewarded ad usage inside activity
     Hera.showAd(
       activity = this,
-      adConfig = AdType.RewardedAd(
+      adConfig = AdConfig.RewardedAd(
         action = "MainScreen"
       )
     )
@@ -220,7 +221,7 @@ You can show your ads after load.
 // Rewarded ad usage inside fragment
     Hera.showAd(
       fragment = this,
-      adConfig = AdType.RewardedAd(
+      adConfig = AdConfig.RewardedAd(
         action = "MainScreen"
       )
     )
@@ -265,7 +266,7 @@ You can show your ads after load.
 // Native ad usage inside activity
     Hera.showAd(
       activity = this,
-      adConfig = AdType.NativeAd(
+      adConfig = AdConfig.NativeAd(
         action = "MainScreen"
       ),
       view = viewGroupForBanner
@@ -275,7 +276,7 @@ You can show your ads after load.
 // Native ad usage inside fragment
     Hera.showAd(
       fragment = this,
-      adConfig = AdType.NativeAd(
+      adConfig = AdConfig.NativeAd(
         action = "MainScreen"
       ),
       binder = HeraBinder(hera, facebook, google, tiktok)
