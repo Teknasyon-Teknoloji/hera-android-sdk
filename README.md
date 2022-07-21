@@ -23,19 +23,21 @@ The following document offers a quick guide on how to use this SDK.
 
 ## Installation
 
-Hera and Admost repositories should be added in project level build.gradle file
+Hera, Admost, IronSource repositories should be added in project level build.gradle file
 
 ```groovy
     maven { url 'https://maven.teknasyon.com' }
-    maven { url 'http://repo.admost.com:8081/artifactory/amr' }
-    maven { url 'https://pubsdk-bin.criteo.com/publishersdk/android' }
-    maven { url 'https://maven.ogury.co' }
+    maven { 
+        allowInsecureProtocol true
+        url 'http://repo.admost.com:8081/artifactory/amr' 
+    }
+    maven { url 'https://android-sdk.is.com/' }
 ```
 
 Hera dependency should be added in app level build.gradle file
    
 ```groovy 
-    implementation 'hera:hera:2.2.2'
+    implementation 'hera:hera:2.4.3'
 ```
 
 
@@ -285,62 +287,108 @@ You can show your ads after load.
 ```
 
 ### Events
+Hera uses protocol oriented approach for events. A class that implements `AdListener` interface can start to fetch events by calling `addHeraObserver()`and can stop to fetch events by calling `removeHeraObserver()`. All members of AdListener have default implementation, so methods only desired to be used can be overriden.
 
-Event|Type|Description
------|----|-----------
-HERA_READY|-|It's fired After fetch config successful.
-AD_LOADED|String|
-AD_SHOWED|String|
-AD_CLOSED|String|
-AD_CLICKED|String|
-AD_FAILED|String|
-AD_COMPLETED|String|It's fired when user earn reward from rewarded ads. To open premium content, AD_CLOSED event should be waited
-
-You can use Ares EventBus system with Mediation 
+When AdListener is used on an anonymous object and reference of it not kept anywhere, it can be removed before actual `removeHeraObserver()` called becuase of garbage collection. 
 
 ```kotlin
-    Hera.subscribe(Consumer {
-        when (it.type) {
-            MediationEvent.AD_CLOSED.value -> {
-                openNextActivity()
-            }
-            MediationEvent.AD_FAILED.value -> {
-                showToast()
-            }
-            MediationEvent.HERA_READY.value -> {
-                lifecycleScope.launch(Dispatchers.Main) {
-                    Hera.loadAd(this@SplashActivity, "action")
-                }
-            }
-        }
-    })
+interface AdListener : ESPListener {
+    @OnLifecycleEvent(Lifecycle.Event.ON_CREATE)
+    fun addHeraObserver() {
+        AdNotifier.addListener(this)
+    }
+
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun removeHeraObserver() {
+        AdNotifier.removeListener(this)
+    }
+
+    /**
+     * Fired when Hera SDK ready to use. It is fired after Hera::setUserProperties or
+     * Hera::updateUserProperties
+     *
+     * @see hera.Hera.setUserProperties
+     * @see hera.Hera.updateUserProperties
+     */
+    fun onHeraReady() = Unit
+
+    /**
+     * Called when an ad loaded successfully
+     * @param config loaded ad config
+     */
+    fun onAdLoaded(config: AdConfig) = Unit
+
+    /**
+     *  Called when an ad shown
+     *  @param config shown ad config
+     */
+    fun onAdShown(config: AdConfig) = Unit
+
+    /**
+     * Called when an interstitial ad closed or rewarded ad closed before user earn reward
+     * @param config closed ad config
+     */
+    fun onAdClosed(config: AdConfig) = Unit
+
+    /**
+     * Called when an ad failed to load
+     * @param config failed ad config
+     * @param message detail about fail
+     */
+    fun onAdFailed(config: AdConfig, message: String?) = Unit
+
+    /**
+     * Called when an ad clicked by user
+     * @param config clicked ad config
+     */
+    fun onAdClicked(config: AdConfig) = Unit
+
+    /**
+     * Called when user earned reward from a rewarded ad
+     * @param config completed rewarded ad config
+     */
+    fun onAdCompleted(config: AdConfig.RewardedAd) = Unit
+}
+
 ```
 
-## Updating User Status
-
-`Hera.updateUserProperties(activity,userProperties)`
-
-
-
-> Calling this method will fetch the configurations again and re-initialize `Hera`.
 
 ## Ad Network Integration
 
 
 Hera supports Google Admob and Facebook Ads out of the box if you would like to integrate other ad networks please add corresponding adapter dependencies in your gradle file.
 
-It is possible to integrate a third party network by adding corresponding network adapter in app module dependencies.
+It is possible to integrate a third party network by adding corresponding repository in project gradle file or settings gradle file and network adapter in app module dependencies.
+
 ```groovy
-    implementation "hera:hera-adcolony:4.6.3.1"
-    implementation "hera:hera-applovin:10.3.3.1"
-    implementation "hera:hera-chartboost:8.2.1.1"
-    implementation "hera:hera-criteo:4.4.0.1"
-    implementation "hera:hera-inmobi:9.1.9.1"
-    implementation "hera:hera-ironsource:7.1.10.1"
-    implementation "hera:hera-ogury:5.0.10.1"
-    implementation "hera:hera-unityads:3.7.2.2"
-    implementation "hera:hera-vungle:6.10.2.1"
-    implementation "hera:hera-tiktok:3.9.0.1"
+allprojects {
+    repositories {
+        // criteo
+        maven { url 'https://pubsdk-bin.criteo.com/publishersdk/android' }
+
+        // ogury
+        maven { url 'https://maven.ogury.co' }
+
+        // verve
+        maven { url 'https://verve.jfrog.io/artifactory/verve-gradle-release' }
+
+        // tiktok
+        maven { url 'https://artifact.bytedance.com/repository/pangle' }
+    }
+}
+```
+```groovy
+    implementation "hera:hera-adcolony:4.6.5.2"
+    implementation "hera:hera-applovin:11.1.2.2"
+    implementation "hera:hera-chartboost:8.3.1.1"
+    implementation "hera:hera-criteo:4.4.0.5"
+    implementation "hera:hera-inmobi:10.0.3.1"
+    implementation "hera:hera-ironsource:7.1.14.1"
+    implementation "hera:hera-ogury:5.1.0.2"
+    implementation "hera:hera-unityads:4.0.0.1"
+    implementation "hera:hera-vungle:6.10.4.2"
+    implementation "hera:hera-tiktok:4.2.5.4"
+    implementation "hera:hera-verve:2.11.1.1"
 ```
 ### Applovin Integration
 
